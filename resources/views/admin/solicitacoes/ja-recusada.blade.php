@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Aprovar solicitação — APPS</title>
+    <title>Solicitação recusada — APPS</title>
 
     <style>
         * {
@@ -38,8 +38,6 @@
             margin: 0 auto;
         }
 
-        /* CABEÇALHO */
-
         .header {
             text-align: center;
             color: white;
@@ -67,33 +65,45 @@
             opacity: 0.9;
         }
 
-        /* CARTÃO */
-
         .card {
             background: white;
             border-radius: 8px;
-            padding: 38px 42px 42px;
+            padding: 42px;
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .icone {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #fff3f3;
+            border: 2px solid #e2bcbc;
+            color: #9d2626;
+            font-size: 38px;
+            line-height: 68px;
+            font-weight: bold;
         }
 
         .card h2 {
-            margin: 0 0 8px;
-            font-size: 27px;
-            color: #17623a;
+            margin: 0;
+            font-size: 29px;
+            color: #8f2020;
         }
 
-        .subtitle {
-            margin: 0 0 28px;
+        .mensagem {
+            margin: 12px 0 28px;
             color: #607481;
-            font-size: 15px;
+            font-size: 16px;
+            line-height: 1.5;
         }
-
-        /* DADOS */
 
         .dados {
             border: 1px solid #d6dfe4;
             border-radius: 6px;
             overflow: hidden;
+            text-align: left;
             margin-bottom: 28px;
         }
 
@@ -120,70 +130,17 @@
             font-size: 15px;
             font-weight: bold;
             text-align: right;
-            word-break: break-word;
         }
 
-        /* CONFIRMAÇÃO */
-
-        .confirmacao {
+        .info {
+            margin-top: 25px;
             padding: 17px 18px;
-            margin-bottom: 25px;
-            border-left: 4px solid #2c7a4b;
-            border-radius: 4px;
-            background: #eef7f1;
-            color: #245b38;
-            font-size: 15px;
-            line-height: 1.45;
-        }
-
-        .confirmacao strong {
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        /* BOTÕES */
-
-        .acoes {
-            display: flex;
-            gap: 12px;
-        }
-
-        .botao {
-            flex: 1;
-            min-height: 50px;
-            border-radius: 4px;
-            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f6f7;
+            border-radius: 5px;
+            color: #506575;
             font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
+            line-height: 1.5;
         }
-
-        .aprovar {
-            border: none;
-            background: #237344;
-            color: white;
-        }
-
-        .aprovar:hover {
-            background: #1b5d36;
-        }
-
-        .voltar {
-            border: 1px solid #b9c5cb;
-            background: white;
-            color: #36566b;
-        }
-
-        .voltar:hover {
-            background: #f4f6f7;
-        }
-
-        /* RODAPÉ */
 
         .footer {
             margin-top: 25px;
@@ -200,11 +157,11 @@
             }
 
             .card {
-                padding: 30px 22px 32px;
+                padding: 32px 22px;
             }
 
             .card h2 {
-                font-size: 24px;
+                font-size: 25px;
             }
 
             .linha {
@@ -214,14 +171,6 @@
             .valor {
                 margin-top: 5px;
                 text-align: left;
-            }
-
-            .acoes {
-                flex-direction: column-reverse;
-            }
-
-            .botao {
-                width: 100%;
             }
         }
     </style>
@@ -255,13 +204,17 @@
 
         <div class="card">
 
+            <div class="icone">
+                !
+            </div>
+
             <h2>
-                Aprovar solicitação
+                Solicitação recusada
             </h2>
 
-            <p class="subtitle">
-                Confira os dados antes de confirmar a aprovação.
-            </p>
+            <div class="mensagem">
+                Esta solicitação foi recusada.
+            </div>
 
 
             <div class="dados">
@@ -308,43 +261,11 @@
                 <div class="linha">
 
                     <div class="label">
-                        E-mail
+                        Data da recusa
                     </div>
 
                     <div class="valor">
-                        {{ $solicitacao->email }}
-                    </div>
-
-                </div>
-
-
-                <div class="linha">
-
-                    <div class="label">
-                        Tipo
-                    </div>
-
-                    <div class="valor">
-
-                        @if ($solicitacao->tipo === 'renovacao')
-                            Renovação
-                        @else
-                            Nova associação
-                        @endif
-
-                    </div>
-
-                </div>
-
-
-                <div class="linha">
-
-                    <div class="label">
-                        Valor
-                    </div>
-
-                    <div class="valor">
-                        R$ {{ number_format($solicitacao->valor, 2, ',', '.') }}
+                        {{ $solicitacao->recusado_em?->format('d/m/Y \à\s H:i') }}
                     </div>
 
                 </div>
@@ -352,46 +273,10 @@
             </div>
 
 
-            <div class="confirmacao">
+            <div class="info">
 
-                <strong>
-                    Confirmação
-                </strong>
-
-                Ao aprovar, a associação será criada ou renovada
-                e o associado receberá a confirmação por e-mail.
-
-            </div>
-
-
-            <div class="acoes">
-
-                <a
-                    href="{{ url()->previous() }}"
-                    class="botao voltar"
-                >
-                    VOLTAR
-                </a>
-
-
-                <form
-                    method="POST"
-                    action="{{ route('admin.solicitacoes.aprovar', ['token' => $solicitacao->token]) }}"
-                    style="flex: 1; margin: 0;"
-                    onsubmit="this.querySelector('button[type=submit]').disabled=true;"
-                >
-
-                    @csrf
-
-                    <button
-                        type="submit"
-                        class="botao aprovar"
-                        style="width: 100%;"
-                    >
-                        SIM — APROVAR SOLICITAÇÃO
-                    </button>
-
-                </form>
+                A solicitação foi encerrada e não poderá mais
+                ser processada através deste link.
 
             </div>
 
