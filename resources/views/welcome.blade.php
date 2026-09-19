@@ -305,12 +305,17 @@
         @media (max-width: 800px) {
 
             .hero {
-                min-height: 760px;
+                min-height: auto;
+                padding-bottom: 25px;
                 background-position: center;
             }
 
             .container {
-                width: calc(100% - 35px);
+                width: calc(100% - 30px);
+            }
+
+            header {
+                padding-top: 20px;
             }
 
             .header-inner {
@@ -318,95 +323,36 @@
             }
 
             .logo {
-                width: 105px;
-                height: 105px;
+                width: 90px;
+                height: 90px;
+                margin-bottom: 15px;
             }
 
             .brand {
-                margin-top: 20px;
+                margin-top: 0;
+                padding-top: 0;
             }
 
             .brand h1 {
-                font-size: 38px;
+                font-size: 34px;
+                line-height: 1.05;
                 letter-spacing: -1px;
             }
 
             .brand-subtitle {
-                font-size: 11px;
-                letter-spacing: 3px;
+                margin-top: 15px;
+                font-size: 10px;
+                letter-spacing: 2px;
+                line-height: 1.6;
             }
 
             nav {
-                margin-top: 25px;
+                margin-top: 22px;
+                padding-top: 0;
+                display: flex;
                 flex-wrap: wrap;
-                gap: 15px 22px;
-            }
-
-            .cta-area {
-                width: calc(100% - 35px);
-                grid-template-columns: 1fr;
-                gap: 12px;
-                bottom: 20px;
-            }
-
-            .cta {
-                min-height: 115px;
-                padding: 20px;
-            }
-
-            .cta-icon {
-                width: 70px;
-                font-size: 38px;
-            }
-
-            .cta h2 {
-                font-size: 21px;
-            }
-
-            .cta p {
-                font-size: 14px;
-            }
-
-            .cta-arrow {
-                font-size: 32px;
-            }
-
-            .features-inner {
-                width: calc(100% - 35px);
-                grid-template-columns: 1fr 1fr;
-                gap: 30px 0;
-            }
-
-            .feature {
-                border-right: none;
-                padding: 0 20px;
-            }
-
-            .feature:nth-child(odd) {
-                border-right: 1px solid #d4d9dd;
-            }
-
-            footer {
-                padding: 20px 0;
-            }
-
-            .footer-inner {
-                width: calc(100% - 35px);
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            .hero {
-                min-height: 800px;
-            }
-
-            .brand h1 {
-                font-size: 32px;
-            }
-
-            .brand-subtitle {
-                line-height: 1.7;
+                gap: 10px 18px;
+                white-space: normal;
             }
 
             nav a {
@@ -414,11 +360,147 @@
             }
 
             .admin-link {
-                padding: 10px 14px;
+                padding: 9px 12px;
+            }
+
+            .cta-area {
+                position: static;
+                transform: none;
+                width: calc(100% - 30px);
+                margin: 35px auto 0;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .cta {
+                min-height: 105px;
+                padding: 18px;
+            }
+
+            .cta-icon {
+                width: 60px;
+                font-size: 34px;
+            }
+
+            .cta h2 {
+                font-size: 20px;
+            }
+
+            .cta p {
+                font-size: 14px;
+                line-height: 1.35;
+            }
+
+            .cta-arrow {
+                font-size: 30px;
+                margin-left: 10px;
+            }
+
+            .features {
+                padding: 35px 0;
             }
 
             .features-inner {
+                width: calc(100% - 30px);
+                grid-template-columns: 1fr 1fr;
+                gap: 25px 0;
+            }
+
+            .feature {
+                padding: 0 15px;
+                border-right: none;
+            }
+
+            .feature:nth-child(odd) {
+                border-right: 1px solid #d4d9dd;
+            }
+
+            .feature-icon {
+                font-size: 34px;
+                height: 45px;
+            }
+
+            .feature h3 {
+                font-size: 16px;
+            }
+
+            .feature p {
+                font-size: 14px;
+            }
+
+            footer {
+                padding: 18px 0;
+            }
+
+            .footer-inner {
+                width: calc(100% - 30px);
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero {
+                padding-bottom: 20px;
+            }
+
+            .container {
+                width: calc(100% - 24px);
+            }
+
+            .logo {
+                width: 75px;
+                height: 75px;
+            }
+
+            .brand h1 {
+                font-size: 29px;
+            }
+
+            .brand-subtitle {
+                font-size: 9px;
+                letter-spacing: 1.5px;
+            }
+
+            nav {
+                gap: 9px 14px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .admin-link {
+                padding: 8px 10px;
+            }
+
+            .cta-area {
+                width: calc(100% - 24px);
+                margin-top: 25px;
+            }
+
+            .cta {
+                min-height: 100px;
+                padding: 15px;
+            }
+
+            .cta-icon {
+                width: 50px;
+                font-size: 30px;
+            }
+
+            .cta h2 {
+                font-size: 18px;
+            }
+
+            .cta p {
+                font-size: 13px;
+            }
+
+            .features-inner {
+                width: calc(100% - 24px);
                 grid-template-columns: 1fr;
+                gap: 25px;
             }
 
             .feature,
