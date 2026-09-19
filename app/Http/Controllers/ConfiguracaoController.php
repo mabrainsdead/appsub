@@ -15,6 +15,7 @@ class ConfiguracaoController extends Controller
             'valor_associacao',
             'chave_pix',
             'nome_pix',
+            'email_aprovacao',
         ])
             ->pluck('valor', 'chave');
 
@@ -29,6 +30,7 @@ class ConfiguracaoController extends Controller
             'valor_associacao' => ['required', 'numeric', 'min:0'],
             'chave_pix' => ['required', 'string', 'max:255'],
             'nome_pix' => ['required', 'string', 'max:255'],
+            'email_aprovacao' => ['required', 'email', 'max:255'],
         ]);
 
         foreach ($dados as $chave => $valor) {

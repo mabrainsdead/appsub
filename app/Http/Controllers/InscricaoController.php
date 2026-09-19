@@ -15,6 +15,7 @@ use App\Mail\SolicitacaoRecebida;
 use App\Mail\SolicitacaoEmAnalise;
 
 
+
 class InscricaoController extends Controller
 {
 
@@ -158,7 +159,7 @@ class InscricaoController extends Controller
         ]);
 
 // E-mail para o administrador
-        Mail::to('admin@apps.local')
+        Mail::to(Configuracao::obter('email_aprovacao'))
             ->send(new SolicitacaoRecebida($solicitacao));
 
 // E-mail para o solicitante

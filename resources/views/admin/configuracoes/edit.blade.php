@@ -216,6 +216,30 @@
 
             </div>
 
+            <div class="campo">
+
+                <label for="email_aprovacao">
+                    E-mail do responsável pela aprovação
+                </label>
+
+                <input
+                    type="email"
+                    id="email_aprovacao"
+                    name="email_aprovacao"
+                    value="{{ old('email_aprovacao', $configuracoes['email_aprovacao'] ?? '') }}"
+                    required
+                >
+
+                <div class="ajuda">
+                    Endereço que receberá as notificações de novas solicitações e comprovantes para análise.
+                </div>
+
+                @error('email_aprovacao')
+                <div class="erro">{{ $message }}</div>
+                @enderror
+
+            </div>
+
             <div class="botoes">
 
                 <button type="submit">

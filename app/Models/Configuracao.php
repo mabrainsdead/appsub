@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Configuracao extends Model
 {
     protected $table = 'configuracoes';
@@ -13,4 +12,9 @@ class Configuracao extends Model
         'chave',
         'valor',
     ];
+
+    public static function obter(string $chave, mixed $padrao = null): mixed
+    {
+        return static::where('chave', $chave)->value('valor') ?? $padrao;
+    }
 }
