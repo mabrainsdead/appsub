@@ -32,7 +32,7 @@ class ConfiguracaoController extends Controller
             'nome_pix' => ['required', 'string', 'max:255'],
             'email_aprovacao' => ['required', 'email', 'max:255'],
         ]);
-
+        \Log::info('CONFIGURAÇÕES RECEBIDAS', $dados);
         foreach ($dados as $chave => $valor) {
             Configuracao::updateOrCreate(
                 ['chave' => $chave],

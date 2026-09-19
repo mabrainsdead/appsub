@@ -527,7 +527,7 @@
             <div class="header-inner">
 
                 <img
-                    src="{{ asset('images/logo_apps.jpg') }}"
+                    src="{{ asset('images/logo_2_apps.jpeg') }}"
                     alt="APPS"
                     class="logo"
                 >
